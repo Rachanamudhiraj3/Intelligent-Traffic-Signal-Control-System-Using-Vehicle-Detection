@@ -1,0 +1,82 @@
+from pathlib import Path
+import cv2
+
+# PROJECT PATHS
+BASE_DIR = Path(__file__).resolve().parent
+
+WEIGHTS_DIR = BASE_DIR / "weights"
+IMAGES_DIR = BASE_DIR / "images"
+
+# MODEL PATHS
+VEHICLE_MODEL_PATH = WEIGHTS_DIR / "yolov8n.pt"
+EMERGENCY_MODEL_PATH = WEIGHTS_DIR / "best.pt"
+
+# INPUT IMAGES
+LANE_IMAGES = {
+
+    "Lane 1": IMAGES_DIR / "lane_1.jpeg",
+    "Lane 2": IMAGES_DIR / "lane_2.jpg",
+    "Lane 3": IMAGES_DIR / "lane_3.jpeg",
+    "Lane 4": IMAGES_DIR / "lane_4.png",
+
+}
+'''
+LANE_IMAGES = {
+
+    "Lane 1": IMAGES_DIR / "l1.png",
+    "Lane 2": IMAGES_DIR / "l2.jpg",
+    "Lane 3": IMAGES_DIR / "l3.jpeg",
+    "Lane 4": IMAGES_DIR / "l4.png",
+
+}
+'''
+# IMAGE SETTINGS
+FRAME_WIDTH = 640
+FRAME_HEIGHT = 480
+
+ENABLE_PREPROCESSING = True
+
+# VEHICLE DETECTION
+VEHICLE_CLASSES = [
+    "car",
+    "bus",
+    "truck",
+    "motorcycle"
+]
+
+VEHICLE_CONFIDENCE = 0.45
+
+# EMERGENCY DETECTION
+EMERGENCY_CONFIDENCE = 0.60
+
+# SIGNAL SETTINGS
+BASE_SIGNAL_TIME = 10
+TIME_PER_VEHICLE = 2
+
+MIN_SIGNAL_TIME = 10
+MAX_SIGNAL_TIME = 60
+
+EMERGENCY_SIGNAL_TIME = 60
+
+# DISPLAY SETTINGS
+WINDOW_NAME = "Intelligent Traffic Control System"
+
+FONT = cv2.FONT_HERSHEY_SIMPLEX
+
+TITLE_SCALE = 0.70
+TEXT_SCALE = 0.60
+
+TITLE_THICKNESS = 2
+TEXT_THICKNESS = 2
+
+# COLORS (BGR)
+GREEN = (0, 255, 0)
+RED = (0, 0, 255)
+BLUE = (255, 0, 0)
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+YELLOW = (0, 255, 255)
+CYAN = (255, 255, 0)
+
+VEHICLE_BOX_COLOR = GREEN
+EMERGENCY_BOX_COLOR = RED

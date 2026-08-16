@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+
+output/
+results.csv
+
+.env
+.venv/
+venv/
+
+*.pt
+*.pth
